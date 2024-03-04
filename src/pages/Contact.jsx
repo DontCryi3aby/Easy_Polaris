@@ -8,8 +8,21 @@ import {
   Page,
   TextField,
 } from "@shopify/polaris";
-import React from "react";
+import React, { useCallback, useState } from "react";
 export function Contact() {
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = useCallback(() => {
+    console.log("Submit successfully!");
+    console.log({ email, subject, message });
+  }, [email, subject, message]);
+
+  const handleEmailChange = (value) => setEmail(value);
+  const handleSubjectChange = (value) => setSubject(value);
+  const handleMessageChange = (value) => setMessage(value);
+
   return (
     <Page title="Contact">
       <LegacyCard sectioned>
@@ -27,27 +40,27 @@ export function Contact() {
           <Box style={{ margin: "20px 0" }}>
             <Divider borderColor="border" />
           </Box>
-          <Form onSubmit={() => {}}>
+          <Form onSubmit={handleSubmit}>
             <FormLayout>
               <TextField
-                value=""
-                onChange={() => {}}
+                value={email}
+                onChange={handleEmailChange}
                 label="Your Email"
                 type="email"
                 autoComplete="email"
               />
 
               <TextField
-                value=""
-                onChange={() => {}}
+                value={subject}
+                onChange={handleSubjectChange}
                 label="Subject"
                 type="text"
               />
 
               <TextField
                 label="Message"
-                value=""
-                onChange={() => {}}
+                value={message}
+                onChange={handleMessageChange}
                 multiline={4}
                 autoComplete="off"
               />

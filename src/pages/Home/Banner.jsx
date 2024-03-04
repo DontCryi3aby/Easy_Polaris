@@ -16,7 +16,7 @@ export function Banner() {
             submit unlimited tasks!
           </Text>
           <button
-            class="custom-large-btn"
+            className="custom-large-btn"
             style={{
               border: "1px solid rgb(170, 170, 170)",
               background: "#fff",
@@ -25,7 +25,7 @@ export function Banner() {
             Submit a new task
           </button>
           <button
-            class="custom-large-btn"
+            className="custom-large-btn"
             style={{
               background: "rgb(88, 110, 202)",
               border: "1px solid rgb(88, 110, 202)",
