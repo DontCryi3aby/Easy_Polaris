@@ -8,7 +8,7 @@ export function Banner() {
     >
       <Box style={{ width: "300px" }}>
         <LegacyStack vertical>
-          <Text variant="heading2xl" as="h2">
+          <Text variant="headingXl" as="h2">
             Hey Thach, welcome to EasyPolaris!
           </Text>
           <Text variant="bodyLg" as="p">

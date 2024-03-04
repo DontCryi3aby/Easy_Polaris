@@ -11,6 +11,7 @@ import {
 import { Settings } from "../pages/Settings";
 
 const routes = [
+  { path: "/", component: Home },
   { path: "/home", component: Home },
   { path: "/contact", component: Contact, layout: null },
   { path: "/task", component: Task },

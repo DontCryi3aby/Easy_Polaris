@@ -9,9 +9,12 @@ export function Home() {
 
   useEffect(() => {
     (async () => {
-      const data = await axiosClient.get("tasks", {
-        params: { page: 1, limit: 10 },
-      });
+      const data = await axiosClient.get(
+        "https://6294640ba7203b3ed067f742.mockapi.io/api/shopify/tasks",
+        {
+          params: { page: 1, limit: 10 },
+        }
+      );
       setTaskList(data);
       console.log(data);
     })();

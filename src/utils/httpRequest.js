@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://6294640ba7203b3ed067f742.mockapi.io/api/shopify/",
   headers: { "Content-Type": "application/json" },
 });
 

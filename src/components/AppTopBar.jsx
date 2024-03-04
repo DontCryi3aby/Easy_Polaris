@@ -6,7 +6,7 @@ import {
 } from "@shopify/polaris-icons";
 import { useCallback, useState } from "react";
 
-export default function Header() {
+export default function Header({ onToggleMobileNavigationActive }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isSecondaryMenuOpen, setIsSecondaryMenuOpen] = useState(false);
 
@@ -19,10 +19,6 @@ export default function Header() {
     () => setIsSecondaryMenuOpen((isSecondaryMenuOpen) => !isSecondaryMenuOpen),
     []
   );
-
-  const handleNavigationToggle = useCallback(() => {
-    console.log("toggle navigation visibility");
-  }, []);
 
   const userMenuMarkup = (
     <TopBar.UserMenu
@@ -81,7 +77,7 @@ export default function Header() {
       showNavigationToggle
       userMenu={userMenuMarkup}
       secondaryMenu={secondaryMenuMarkup}
-      onNavigationToggle={handleNavigationToggle}
+      onNavigationToggle={onToggleMobileNavigationActive}
     />
   );
 }
