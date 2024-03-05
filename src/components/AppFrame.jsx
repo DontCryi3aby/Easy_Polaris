@@ -2,9 +2,8 @@ import { Frame } from "@shopify/polaris";
 
 import React, { useCallback, useState } from "react";
 import Logo from "../assets/images/Logo.png";
-import Header from "./Header";
-import NavigationMarkup from "./NavigationMarkup";
 import AppTopBar from "./AppTopBar";
+import NavigationMarkup from "./NavigationMarkup";
 
 export default function AppFrame({ children }) {
   // Track the open state of the mobile navigation
@@ -19,7 +18,7 @@ export default function AppFrame({ children }) {
 
   const logo = {
     topBarSource: Logo,
-    width: 120,
+    width: 190,
     url: "/",
     accessibilityLabel: "Shopify",
   };

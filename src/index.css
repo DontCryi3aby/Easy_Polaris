@@ -12,6 +12,7 @@
 
 .Polaris-Navigation__PrimaryNavigation {
   background: transparent !important;
+  border-right: var(--p-border-width-025) solid rgba(0, 0, 0, 0.05);
 }
 
 .custom-large-btn {
