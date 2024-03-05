@@ -11,13 +11,21 @@ import {
 } from "@shopify/polaris";
 import { useFormik } from "formik";
 import ContactSchema from "./ContactSchema";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axiosClient from "../../utils/httpRequest";
+import ContactSkeleton from "./ContactSkeleton";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  }, []);
 
   const handleFormSubmit = (values) => {
     (async () => {
@@ -35,7 +43,6 @@ export function Contact() {
         setIsSubmitSuccess(false);
       }
     })();
-    console.log(values);
   };
 
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
@@ -53,7 +60,9 @@ export function Contact() {
     handleChange({ target: { id, value } });
   };
 
-  return (
+  return isLoading ? (
+    <ContactSkeleton />
+  ) : (
     <Page title="Contact">
       <LegacyCard sectioned>
         <Box style={{ padding: "0 20px" }}>

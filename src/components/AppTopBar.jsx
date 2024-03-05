@@ -1,4 +1,4 @@
-import { Box, Button, Icon, Text, TopBar } from "@shopify/polaris";
+import { Button, InlineStack, Text, TopBar } from "@shopify/polaris";
 import {
   ArrowLeftIcon,
   NotificationIcon,
@@ -8,15 +8,9 @@ import { useCallback, useState } from "react";
 
 export default function Header({ onToggleMobileNavigationActive }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const [isSecondaryMenuOpen, setIsSecondaryMenuOpen] = useState(false);
 
   const toggleIsUserMenuOpen = useCallback(
     () => setIsUserMenuOpen((isUserMenuOpen) => !isUserMenuOpen),
-    []
-  );
-
-  const toggleIsSecondaryMenuOpen = useCallback(
-    () => setIsSecondaryMenuOpen((isSecondaryMenuOpen) => !isSecondaryMenuOpen),
     []
   );
 
@@ -39,37 +33,25 @@ export default function Header({ onToggleMobileNavigationActive }) {
   );
 
   const secondaryMenuMarkup = (
-    <Box
-      style={{
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
+    <InlineStack blockAlign="center" gap="300">
       <Text variant="bodyMd" as="h6">
         Available credits: 4
       </Text>
-      <Icon source={PlusCircleIcon} tone="base" />
 
-      <Button>Submit a new task</Button>
-      <TopBar.Menu
-        activatorContent={
-          <span>
-            <Icon source={NotificationIcon} />
-            <Text as="span" visuallyHidden>
-              Secondary menu
-            </Text>
-          </span>
-        }
-        open={isSecondaryMenuOpen}
-        onOpen={toggleIsSecondaryMenuOpen}
-        onClose={toggleIsSecondaryMenuOpen}
-        actions={[
-          {
-            items: [{ content: "Notification" }],
-          },
-        ]}
+      <Button
+        icon={PlusCircleIcon}
+        accessibilityLabel="Add credit"
+        variant="plain"
       />
-    </Box>
+
+      <button className="custom-medium-btn">Submit a new task</button>
+
+      <Button
+        icon={NotificationIcon}
+        accessibilityLabel="Notification"
+        variant="plain"
+      />
+    </InlineStack>
   );
 
   return (

@@ -1,13 +1,6 @@
 @import "normalize.css";
 
-.c-bg-white {
-  background: #fff !important;
-}
-
-.Polaris-Navigation {
-  background: transparent;
-}
-
+.c-bg-white,
 .Polaris-TopBar {
   background: #fff;
 }
@@ -31,7 +24,6 @@
 }
 
 .custom-medium-btn {
-  margin: 0 10px;
   background: transparent;
   padding: 10px 20px;
   border-radius: 5px;
@@ -40,9 +32,8 @@
 }
 
 .custom-banner {
-  display: flex;
-  align-items: center;
-  background: url("./assets/images/Banner.png") no-repeat left;
+  background: url("./assets/images/BANNER.png") no-repeat right;
+  background-size: contain;
   min-height: 500px;
 }
 
@@ -54,6 +45,8 @@
   color: var(--p-color-bg-fill-info-secondary);
 }
 
+.Polaris-Navigation,
+.Polaris-TopBar-Menu__Activator--userMenu,
 .Polaris-Navigation__ItemInnerWrapper--selected {
   background: transparent !important;
 }
@@ -69,26 +62,58 @@
 .Polaris-Navigation__Item--selected::before {
   color: rgba(0, 123, 92, 1) !important;
   background-color: rgba(0, 123, 92, 1) !important;
+  opacity: 1;
 }
 
 .Polaris-Navigation__Item--selected {
-  background: #e3e3e3 !important;
+  background: rgba(0, 0, 0, 0.03) !important;
 }
 
 .Polaris-TopBar-UserMenu__Message > p {
   color: #333 !important;
 }
 
+.Polaris-TopBar__NavigationIcon .Polaris-TopBar__IconWrapper,
 .Polaris-TopBar-UserMenu__Details > p,
 .Polaris-TopBar-Menu__Activator:active p,
 .Polaris-TopBar-Menu__Activator[aria-expanded="true"] p {
   color: #000;
 }
 
-.Polaris-TopBar-Menu__Activator--userMenu {
-  background: transparent !important;
-}
-
+.Polaris-TopBar__NavigationIcon:hover,
 .Polaris-TopBar-Menu__Activator:hover {
   background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.Polaris-Frame--hasTopBar .Polaris-Frame__Navigation,
+.Polaris-Frame__Content,
+.Polaris-Navigation__LogoContainer .Polaris-Navigation,
+.Polaris-Navigation__LogoContainer {
+  background: #fff !important;
+}
+
+.Polaris-TopBar__Search {
+  display: none !important;
+}
+
+.Polaris-TopBar__Container {
+  grid-template-columns: 1fr 5fr;
+}
+
+.Polaris-TopBar__RightContent {
+  align-items: center;
+}
+
+.Polaris-Frame__Main {
+  max-width: 100% !important;
+}
+
+@media (max-width: 490px) {
+  .custom-medium-btn {
+    display: none !important;
+  }
+}
+
+.Polaris-Page {
+  padding: 0 !important;
 }
